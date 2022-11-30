@@ -8,5 +8,6 @@ namespace HorseTurfe
 {
     public class Horse
     {
+        public string Name;
     }
 }
