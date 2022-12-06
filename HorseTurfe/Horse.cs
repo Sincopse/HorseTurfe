@@ -9,5 +9,6 @@ namespace HorseTurfe
     public class Horse
     {
         public string Name;
+        public string Color;
     }
 }
