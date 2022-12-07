@@ -6,24 +6,36 @@ using System.Threading.Tasks;
 
 namespace HorseTurfe
 {
+    public enum Raca //Raça do cavalo
+    {
+        Nenhuma = 0,
+        Arabe = 1,
+        Morgan = 2,
+        Crioulo = 3
+    }
+
     public class Horse
     {
-        private int idade; // Entre 2 a 15 anos
-        private int velocidade; // 1 a 20
-        private int controlo; // 1 a 20
+        private int idade;      // Idade, entre 2 a 15 anos
+        private int velocidade; // Velocidade, entre 1 a 20
+        private int controlo;  // Controlo na pista, entre 1 a 20
+
+        public int Preco;     // Preço do cavalo
+
+        public Raca Raca;   // Raça do cavalo
 
         public Horse()
         {
-            this.idade = -1;
-            this.velocidade = -1;
-            this.controlo = -1;
+            this.idade = 0;
+            this.velocidade = 0;
+            this.controlo = 0;
+            this.Preco = 0;
+            this.Raca = Raca.Nenhuma;
         }
 
-        public Horse(int idade, int velocidade, int controlo)
+        public override string ToString()
         {
-            this.idade = idade;
-            this.velocidade = velocidade;
-            this.controlo = controlo;
+            return "Return Cavalo " + Raca + " de " + idade + " anos";
         }
     }
 }
