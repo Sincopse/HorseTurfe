@@ -12,8 +12,7 @@ namespace HorseTurfe
         private int velocidade; // 1 a 20
         private int controlo; // 1 a 20
 
-        public Horse()
-        {
+        public Horse() {
             this.idade = -1;
             this.velocidade = -1;
             this.controlo = -1;
