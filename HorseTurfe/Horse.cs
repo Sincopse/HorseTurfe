@@ -8,7 +8,15 @@ namespace HorseTurfe
 {
     public class Horse
     {
-        public string Name;
-        public string Color;
+        private int idade; // Entre 2 a 15 anos
+        private int velocidade; // 1 a 20
+        private int controlo; // 1 a 20
+
+        public Horse()
+        {
+            this.idade = -1;
+            this.velocidade = -1;
+            this.controlo = -1;
+        }
     }
 }
