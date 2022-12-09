@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HorseTurfe
 {
-    public enum Raca //Raça do cavalo
+    public enum Breed //Raça do cavalo
     {
-        Nenhuma = 0,
+        None = 0,
         Arabe = 1,
         Morgan = 2,
         Crioulo = 3
@@ -16,26 +16,49 @@ namespace HorseTurfe
 
     public class Horse
     {
-        private int idade;      // Idade, entre 2 a 15 anos
-        private int velocidade; // Velocidade, entre 1 a 20
-        private int controlo;  // Controlo na pista, entre 1 a 20
+        public int Age;      // Idade, entre 5 a 25 anos
+        public int Speed; // Velocidade, entre 1 a 20
+        public int Control;  // Controlo na pista, entre 1 a 20
 
-        public int Preco;     // Preço do cavalo
+        public float Price;     // Preço do cavalo
 
-        public Raca Raca;   // Raça do cavalo
+        public Breed Breed;   // Raça do cavalo
 
         public Horse()
         {
-            this.idade = 0;
-            this.velocidade = 0;
-            this.controlo = 0;
-            this.Preco = 0;
-            this.Raca = Raca.Nenhuma;
+            this.Age = 0;
+            this.Speed = 0;
+            this.Control = 0;
+            this.Price = 0;
+            this.Breed = Breed.None;
+        }
+
+        public Horse(int age, int speed, int control, float price, Breed breed)
+        {
+            this.Age = age;
+            this.Speed = speed;
+            this.Control = control;
+            this.Price = price;
+            this.Breed = breed;
+        }
+
+        static public Horse GenerateHorse()
+        {
+            Random rnd = new Random();
+
+            return new Horse
+            {
+                Age = rnd.Next(1, 26),
+                Speed = rnd.Next(1, 21),
+                Control = rnd.Next(1, 21),
+                Price = 2000,
+                Breed = (Breed)rnd.Next(1, 4)
+            };
         }
 
         public override string ToString()
         {
-            return "Return Cavalo " + Raca + " de " + idade + " anos";
+            return "Cavalo " + Breed + " de " + Age + " anos";
         }
     }
 }

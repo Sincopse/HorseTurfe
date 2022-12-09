@@ -12,6 +12,7 @@ namespace HorseTurfe
         static void Main(string[] args)
         {
             int option;
+            Horse sampleHorse = Horse.GenerateHorse();
 
             do {
                 Console.Clear();
@@ -24,6 +25,7 @@ namespace HorseTurfe
                               "\n ╚═══════════════════╝" +
                               "\n\n Escolha a sua opção: ");
 
+                Console.Write(sampleHorse.ToString());
                 if (!Int32.TryParse(Console.ReadLine(), out option))
                 {
                     option = -1;
