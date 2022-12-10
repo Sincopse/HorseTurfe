@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HorseTurfe
 {
-    internal class Program
+    public static class Shop
     {
-        static void Main(string[] args)
-        {
-            int option;
-            Horse sampleHorse1 = Horse.GenerateHorse();
-            Horse sampleHorse2 = Horse.GenerateHorse();
-            Horse sampleHorse3 = Horse.GenerateHorse();
 
-            do {
+        public static void Menu()
+        {
+            DateTime lastRefresh = new DateTime();
+            Horse horses = Horse.GenerateHorse();
+            
+            int option;
+
+            do
+            {
                 Console.Clear();
                 Console.Write("\n ╔═══════════════════╗" +
                               "\n ║        MENU       ║" +
@@ -27,15 +28,12 @@ namespace HorseTurfe
                               "\n ╚═══════════════════╝" +
                               "\n\n Escolha a sua opção: ");
 
-                Console.WriteLine(sampleHorse1.Speed + "age: " + sampleHorse1.Age);
-                Console.WriteLine(sampleHorse2.Speed + "age: " + sampleHorse2.Age);
-                Console.WriteLine(sampleHorse3.Speed + "age: " + sampleHorse3.Age);
                 if (!Int32.TryParse(Console.ReadLine(), out option))
                 {
                     option = -1;
                 }
 
-                switch(option)
+                switch (option)
                 {
                     case 1: Console.WriteLine("corridas"); break;
                     case 2: Console.WriteLine("gerir cavalos"); break;
@@ -43,8 +41,8 @@ namespace HorseTurfe
                     case 4: Console.WriteLine("Saiu do Jogo"); break;
                     default: Console.WriteLine("Opçao invalida"); break;
                 }
-                Console.ReadKey(); 
-            
+                Console.ReadKey();
+
             } while (option != 4);
         }
     }

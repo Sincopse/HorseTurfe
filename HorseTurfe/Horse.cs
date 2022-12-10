@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,11 +17,12 @@ namespace HorseTurfe
 
     public class Horse
     {
-        public int Age;      // Idade, entre 5 a 25 anos
-        public int Speed; // Velocidade, entre 1 a 20
-        public int Control;  // Controlo na pista, entre 1 a 20
+        public int Age;       // Idade, entre 2 a 10 anos
+        public int Speed;     // Velocidade, entre 1 a 20
+        public int Toughness; // Resistencia, entre 1 a 20
+        public int Control;   // Controlo na pista, entre 1 a 20
 
-        public float Price;     // Preço do cavalo
+        public float Price;   // Preço do cavalo
 
         public Breed Breed;   // Raça do cavalo
 
@@ -46,10 +48,17 @@ namespace HorseTurfe
         {
             Random rnd = new Random();
 
+            Breed breed = (Breed)rnd.Next(1, 4);
+
+            int age = rnd.Next(2, 11);
+            int speed = (int)(16 * Math.Sin(0.25 * age + 0.4) + rnd.Next(-2, 3));
+            //int control = 
+            //int price = 
+
             return new Horse
             {
-                Age = rnd.Next(1, 26),
-                Speed = rnd.Next(1, 21),
+                Age = age,
+                Speed = speed,
                 Control = rnd.Next(1, 21),
                 Price = 2000,
                 Breed = (Breed)rnd.Next(1, 4)
