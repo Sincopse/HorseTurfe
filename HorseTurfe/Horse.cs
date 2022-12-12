@@ -12,7 +12,15 @@ namespace HorseTurfe
         None = 0,
         Arabe = 1,
         Morgan = 2,
-        Crioulo = 3
+        Crioulo = 3,
+        Lusitano = 4
+    }
+
+    public enum Sex // Arranjar um sistema de procriação de cavalos
+    {
+        None = 0,
+        Male = 1,
+        Female = 2
     }
 
     public class Horse
@@ -24,6 +32,7 @@ namespace HorseTurfe
 
         public float Price;   // Preço do cavalo
 
+        public Sex Sex;       // Sexo do cavalo
         public Breed Breed;   // Raça do cavalo
 
         public Horse()
@@ -33,15 +42,17 @@ namespace HorseTurfe
             this.Control = 0;
             this.Price = 0;
             this.Breed = Breed.None;
+            this.Sex = Sex.None;
         }
 
-        public Horse(int age, int speed, int control, float price, Breed breed)
+        public Horse(int age, int speed, int control, float price, Breed breed, Sex sex)
         {
             this.Age = age;
             this.Speed = speed;
             this.Control = control;
             this.Price = price;
             this.Breed = breed;
+            this.Sex = sex;
         }
 
         static public Horse GenerateHorse()
@@ -61,7 +72,8 @@ namespace HorseTurfe
                 Speed = speed,
                 Control = rnd.Next(1, 21),
                 Price = 2000,
-                Breed = (Breed)rnd.Next(1, 4)
+                Breed = (Breed)rnd.Next(1, 4),
+                Sex = (Sex)rnd.Next(1, 3)
             };
         }
 
