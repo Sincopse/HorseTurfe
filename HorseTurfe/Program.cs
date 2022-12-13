@@ -12,33 +12,51 @@ namespace HorseTurfe
         static void Main(string[] args)
         {
             int option;
-            Horse sampleHorse1 = Horse.GenerateHorse();
-            Horse sampleHorse2 = Horse.GenerateHorse();
-            Horse sampleHorse3 = Horse.GenerateHorse();
+            int optionteam;
+            
+           
 
             do {
                 Console.Clear();
                 Console.Write("\n ╔═══════════════════╗" +
                               "\n ║        MENU       ║" +
                               "\n ║ 1 - Corridas      ║" +
-                              "\n ║ 2 - Gerir Cavalos ║" +
+                              "\n ║ 2 - Gerir Team    ║" +
                               "\n ║ 3 - Loja          ║" +
                               "\n ║ 4 - Sair          ║" +
                               "\n ╚═══════════════════╝" +
                               "\n\n Escolha a sua opção: ");
 
-                Console.WriteLine(sampleHorse1.Speed + "age: " + sampleHorse1.Age);
-                Console.WriteLine(sampleHorse2.Speed + "age: " + sampleHorse2.Age);
-                Console.WriteLine(sampleHorse3.Speed + "age: " + sampleHorse3.Age);
-                if (!Int32.TryParse(Console.ReadLine(), out option))
+               
+                if(!Int32.TryParse(Console.ReadLine(), out option))
                 {
                     option = -1;
                 }
-
-                switch(option)
+               
+                switch (option)
                 {
                     case 1: Console.WriteLine("corridas"); break;
-                    case 2: Console.WriteLine("gerir cavalos"); break;
+                    case 2:Console.Write("\n ╔═══════════════════╗" +
+                                         "\n ║        MENU       ║" +
+                                         "\n ║ 1 - Gerir Jochey  ║" +
+                                         "\n ║ 2 - Gerir Cavalo  ║" +                                  
+                                         "\n ╚═══════════════════╝" +
+                                       "\n\n Escolha a sua opção: ");
+                        //if (!Int32.TryParse(Console.ReadLine(), out optionteam))
+                        //{
+                        //    optionteam = -1;
+                        //}
+                        //switch (optionteam)
+                        //    {
+                        //        case 1:Console.WriteLine("Jockey");
+                        //            {
+                        //                Console.WriteLine("isto da");
+                        //                break;  
+                        //            }
+                        //        case 2:Console.WriteLine("Cavalo");break;
+                        //    }
+                           
+                        break;
                     case 3: Console.WriteLine("loja"); break;
                     case 4: Console.WriteLine("Saiu do Jogo"); break;
                     default: Console.WriteLine("Opçao invalida"); break;

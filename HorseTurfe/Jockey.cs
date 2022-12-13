@@ -10,5 +10,10 @@ namespace HorseTurfe
     {
         private string name;
         public int Age;
+
     }
+
+
+
+
 }
