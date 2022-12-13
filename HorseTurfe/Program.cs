@@ -9,15 +9,40 @@ namespace HorseTurfe
 {
     internal class Program
     {
-        //
-        // Adicionamos aqui os outros métodos do menu
-        //
+        static void Loja()
+        {
+            int option;
+
+            do
+            {
+                Console.Clear();
+                Console.Write("\n ╔═════════════════════╗" +
+                              "\n ║         MENU        ║" +
+                              "\n ║ 1 - Comprar Cavalos ║" +
+                              "\n ║ 2 - Sair            ║" +
+                              "\n ╚═════════════════════╝" +
+                              "\n\n Escolha a sua opção: ");
+
+                if (!Int32.TryParse(Console.ReadLine(), out option))
+                {
+                    option = -1;
+                }
+
+                switch (option)
+                {
+                    case 1: Console.WriteLine("cavalos..."); break;
+                    case 2: Console.WriteLine("Saiu da Loja"); break;
+                    default: Console.WriteLine("Opçao invalida"); break;
+                }
+            } while (option != 2);
+        }
 
         static void Main(string[] args)
         {
             int option;
 
-            do {
+            do
+            {
                 Console.Clear();
                 Console.Write("\n ╔═══════════════════╗" +
                               "\n ║        MENU       ║" +
@@ -28,22 +53,19 @@ namespace HorseTurfe
                               "\n ╚═══════════════════╝" +
                               "\n\n Escolha a sua opção: ");
 
-               
-                if(!Int32.TryParse(Console.ReadLine(), out option))
+                if (!Int32.TryParse(Console.ReadLine(), out option))
                 {
                     option = -1;
                 }
-               
+
                 switch (option)
                 {
                     case 1: Console.WriteLine("corridas"); break;
                     case 2: Console.WriteLine("Gerir Team"); break;
-                    case 3: Console.WriteLine("loja"); break;
+                    case 3: Loja(); break;
                     case 4: Console.WriteLine("Saiu do Jogo"); break;
                     default: Console.WriteLine("Opçao invalida"); break;
                 }
-                Console.ReadKey(); 
-            
             } while (option != 4);
         }
     }
