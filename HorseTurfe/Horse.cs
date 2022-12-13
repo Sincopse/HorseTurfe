@@ -35,7 +35,7 @@ namespace HorseTurfe
         public Sex Sex;       // Sexo do cavalo
         public Breed Breed;   // Raça do cavalo
 
-        public Horse()
+        private Horse()
         {
             this.Age = 0;
             this.Speed = 0;
