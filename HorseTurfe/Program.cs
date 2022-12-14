@@ -16,12 +16,8 @@ namespace HorseTurfe
             do
             {
                 Console.Clear();
-                Console.Write("\n ╔═════════════════════╗" +
-                              "\n ║         MENU        ║" +
-                              "\n ║ 1 - Comprar Cavalos ║" +
-                              "\n ║ 2 - Sair            ║" +
-                              "\n ╚═════════════════════╝" +
-                              "\n\n Escolha a sua opção: ");
+                UI.DrawBox("        Loja;1 - Comprar Cavalos;2 - Sair");
+                Console.Write("\n Escolha a sua opção: ");
 
                 if (!Int32.TryParse(Console.ReadLine(), out option))
                 {
@@ -44,14 +40,8 @@ namespace HorseTurfe
             do
             {
                 Console.Clear();
-                Console.Write("\n ╔═══════════════════╗" +
-                              "\n ║        MENU       ║" +
-                              "\n ║ 1 - Corridas      ║" +
-                              "\n ║ 2 - Gerir Team    ║" +
-                              "\n ║ 3 - Loja          ║" +
-                              "\n ║ 4 - Sair          ║" +
-                              "\n ╚═══════════════════╝" +
-                              "\n\n Escolha a sua opção: ");
+                UI.DrawBox("     Menu;1 - Corridas;2 - Gerir Team;3 - Loja;4 - Sair");
+                Console.Write("\n Escolha a sua opção: ");
 
                 if (!Int32.TryParse(Console.ReadLine(), out option))
                 {
