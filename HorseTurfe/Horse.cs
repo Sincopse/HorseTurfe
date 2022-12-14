@@ -57,7 +57,7 @@ namespace HorseTurfe
 
         static public Horse GenerateHorse()
         {
-            Random rnd = new Random();
+            Random rnd = new Random((int)DateTime.Now.Ticks);
 
             Breed breed = (Breed)rnd.Next(1, 4);
 

@@ -26,7 +26,7 @@ namespace HorseTurfe
 
                 switch (option)
                 {
-                    case 1: Console.WriteLine("cavalos..."); break;
+                    case 1: Shop.HorseStock(); break;
                     case 2: Console.WriteLine("Saiu da Loja"); break;
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
