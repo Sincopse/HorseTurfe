@@ -18,9 +18,8 @@ namespace HorseTurfe
 
     public enum Sex // Arranjar um sistema de procriação de cavalos
     {
-        None = 0,
-        Male = 1,
-        Female = 2
+        Male = 0,
+        Female = 1
     }
 
     public class Horse
@@ -35,6 +34,8 @@ namespace HorseTurfe
         public Sex Sex;       // Sexo do cavalo
         public Breed Breed;   // Raça do cavalo
 
+        public bool canCouple(Horse horse1, Horse horse2) => horse1.Sex != horse2.Sex;
+
         private Horse()
         {
             this.Age = 0;
@@ -42,7 +43,6 @@ namespace HorseTurfe
             this.Control = 0;
             this.Price = 0;
             this.Breed = Breed.None;
-            this.Sex = Sex.None;
         }
 
         public Horse(int age, int speed, int control, float price, Breed breed, Sex sex)

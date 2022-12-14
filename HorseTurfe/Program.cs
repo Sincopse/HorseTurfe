@@ -32,7 +32,7 @@ namespace HorseTurfe
                 {
                     case 1: Console.WriteLine("cavalos..."); break;
                     case 2: Console.WriteLine("Saiu da Loja"); break;
-                    default: Console.WriteLine("Opçao invalida"); break;
+                    default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
             } while (option != 2);
         }
@@ -64,7 +64,7 @@ namespace HorseTurfe
                     case 2: Console.WriteLine("Gerir Team"); break;
                     case 3: Loja(); break;
                     case 4: Console.WriteLine("Saiu do Jogo"); break;
-                    default: Console.WriteLine("Opçao invalida"); break;
+                    default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
             } while (option != 4);
         }
