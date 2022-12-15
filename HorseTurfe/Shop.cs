@@ -8,11 +8,18 @@ namespace HorseTurfe
 {
     internal class Shop
     {
+        public static void ConfirmeShop()
+        {
+            UI.DrawBox( "; 1- Para Confirmar; 0-Para voltar a escoher o cavalo");
+
+        }
+
         public static void HorseStock()
         {
            
             int option;
             string texto;
+            
 
             Horse horse1 = Horse.GenerateHorse();
             Horse horse2 = Horse.GenerateHorse();
@@ -28,24 +35,41 @@ namespace HorseTurfe
 
 
 
-            do
+            do //ainda ver se esta bem
             {
                 Console.Clear();
-                UI.DrawBox("Loja (atualiza em 15 min);" + texto);
+                UI.DrawBox("Loja (atualiza em 15 min);" + texto + ";9-Atualizar");
                 Console.Write("\n Escolha a sua opção: ");
 
                 if (!Int32.TryParse(Console.ReadLine(), out option))
                 {
-                    option = -1;
+                    option = 0;
                 }
 
                 switch (option)
                 {
-                    case 1: Console.WriteLine("nice "); break;
-                    case 2: Console.WriteLine("Saiu da Loja"); break;
+                    case 1:UI.DrawBox("O Cavalo Escolhido foi:" + horses[0]);
+                        ConfirmeShop();
+                        break;
+                    case 2: UI.DrawBox("O Cavalo Escolhido foi:" + horses[1]);
+                        ConfirmeShop();
+                        break;
+                    case 3:UI.DrawBox("O Cavalo Escolhido foi:" + horses[2] + "; 1- Para Confirmar; 0-Para voltar a escoher o cavalo");
+                       /* if (option == 1)
+                        {
+                            Console.WriteLine("removeu o cavalo");
+                        }*/
+                        break;
+                    case 4:UI.DrawBox("O Cavalo Escolhido foi:" + horses[2] + "; 1- Para Confirmar; 0-Para voltar a escoher o cavalo");
+                        /*if(option == 1)
+                        {
+                            Console.WriteLine("removeu o cavalo");
+                        }*/
+                        break;
+                    case 5: Console.WriteLine("A loja era atualizar"); break;
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
-            } while (option != 2);
+            } while (option != 9 );
         }
 
         
@@ -53,4 +77,3 @@ namespace HorseTurfe
 }
 
 
-// UI.DrawBox("        Loja;1 - Comprar Cavalos;2 - Sair");
