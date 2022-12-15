@@ -41,15 +41,17 @@ namespace HorseTurfe
             this.Age = 0;
             this.Speed = 0;
             this.Control = 0;
+            this.Toughness = 0;
             this.Price = 0;
             this.Breed = Breed.None;
         }
 
-        public Horse(int age, int speed, int control, float price, Breed breed, Sex sex)
+        public Horse(int age, int speed, int control, int toughness, float price, Breed breed, Sex sex)
         {
             this.Age = age;
             this.Speed = speed;
             this.Control = control;
+            this.Toughness = toughness;
             this.Price = price;
             this.Breed = breed;
             this.Sex = sex;
@@ -64,6 +66,7 @@ namespace HorseTurfe
             int age = rnd.Next(2, 11);
             int speed = (int)(16 * Math.Sin(0.25 * age + 0.4) + rnd.Next(-2, 3));
             //int control = 
+            //int toughness =
             //int price = 
 
             return new Horse
