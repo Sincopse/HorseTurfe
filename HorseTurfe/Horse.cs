@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -36,16 +37,6 @@ namespace HorseTurfe
 
         public bool canCouple(Horse horse1, Horse horse2) => horse1.Sex != horse2.Sex;
 
-        private Horse()
-        {
-            this.Age = 0;
-            this.Speed = 0;
-            this.Control = 0;
-            this.Toughness = 0;
-            this.Price = 0;
-            this.Breed = Breed.None;
-        }
-
         public Horse(int age, int speed, int control, int toughness, float price, Breed breed, Sex sex)
         {
             this.Age = age;
@@ -61,23 +52,17 @@ namespace HorseTurfe
         {
             Random rnd = new Random((int)DateTime.Now.Ticks);
 
+            Sex sex = (Sex)rnd.Next(2);
+
             Breed breed = (Breed)rnd.Next(1, 4);
 
             int age = rnd.Next(2, 11);
             int speed = (int)(16 * Math.Sin(0.25 * age + 0.4) + rnd.Next(-2, 3));
-            //int control = 
-            //int toughness =
-            //int price = 
+            int control = rnd.Next(2, 11);
+            int toughness = rnd.Next(2, 11);
+            int price = rnd.Next(100, 10000);
 
-            return new Horse
-            {
-                Age = age,
-                Speed = speed,
-                Control = rnd.Next(1, 21),
-                Price = 2000,
-                Breed = (Breed)rnd.Next(1, 4),
-                Sex = (Sex)rnd.Next(1, 3)
-            };
+            return new Horse(age, speed, control, toughness, price, breed, sex);
         }
 
         public override string ToString()
