@@ -33,7 +33,7 @@ namespace HorseTurfe
         public float Price;   // Preço do cavalo
 
         public Sex Sex;       // Sexo do cavalo
-        public Breed Breed;   // Raça do cavalo
+        private Breed breed;   // Raça do cavalo
 
         public bool canCouple(Horse horse1, Horse horse2) => horse1.Sex != horse2.Sex;
 
@@ -44,7 +44,7 @@ namespace HorseTurfe
             this.Control = control;
             this.Toughness = toughness;
             this.Price = price;
-            this.Breed = breed;
+            this.breed = breed;
             this.Sex = sex;
         }
 
@@ -67,7 +67,7 @@ namespace HorseTurfe
 
         public override string ToString()
         {
-            return "Cavalo " + Breed + " de " + Age + " anos";
+            return "Cavalo " + breed + " de " + Age + " anos";
         }
     }
 }
