@@ -11,6 +11,5 @@ namespace HorseTurfe
         public string Name;
 
         public List<Horse> Horses;
-	    public List<Jockey> Jockeys;
     }
 }
