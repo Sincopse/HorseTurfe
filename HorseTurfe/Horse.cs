@@ -25,17 +25,17 @@ namespace HorseTurfe
 
     public class Horse
     {
-        public int Age;       // Idade, entre 2 a 10 anos
-        public int Speed;     // Velocidade, entre 1 a 20
-        public int Toughness; // Resistencia, entre 1 a 20
-        public int Control;   // Controlo na pista, entre 1 a 20
+        public int Age;           // Idade, entre 2 a 10 anos
+        public int Speed;         // Velocidade, entre 1 a 20
+        public int Toughness;     // Resistencia, entre 1 a 20
+        public int Control;       // Controlo na pista, entre 1 a 20
 
-        public float Price;   // Preço do cavalo
+        public float Price;       // Preço do cavalo
 
-        public Sex Sex;       // Sexo do cavalo
-        public Breed Breed;   // Raça do cavalo
+        private Sex sex { get; } // Sexo do cavalo
+        private Breed breed;      // Raça do cavalo
 
-        public bool canCouple(Horse horse1, Horse horse2) => horse1.Sex != horse2.Sex;
+        public bool canCouple(Horse horse1, Horse horse2) => horse1.sex != horse2.sex;
 
         public Horse(int age, int speed, int control, int toughness, float price, Breed breed, Sex sex)
         {
@@ -44,8 +44,8 @@ namespace HorseTurfe
             this.Control = control;
             this.Toughness = toughness;
             this.Price = price;
-            this.Breed = breed;
-            this.Sex = sex;
+            this.breed = breed;
+            this.sex = sex;
         }
 
         static public Horse GenerateHorse()
@@ -67,7 +67,7 @@ namespace HorseTurfe
 
         public override string ToString()
         {
-            return "Cavalo " + Breed + " de " + Age + " anos";
+            return "Cavalo " + breed + " de " + Age + " anos";
         }
     }
 }
