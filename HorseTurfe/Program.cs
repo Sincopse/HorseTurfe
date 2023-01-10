@@ -9,7 +9,8 @@ namespace HorseTurfe
 {
     internal class Program
     {
-        static void Loja()
+        
+        static void Loja(Team team)
         {
             int option;
 
@@ -26,7 +27,7 @@ namespace HorseTurfe
 
                 switch (option)
                 {
-                    case 1: Shop.HorseStock(); break;
+                    case 1: Shop.HorseShop(team); break;
                     case 2: Console.WriteLine("Saiu da Loja"); break;
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
