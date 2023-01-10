@@ -8,6 +8,10 @@ namespace HorseTurfe
 {
     public static class UI
     {
+        /// <summary>
+        /// Receives a string splitted by semicolons and draws a Ascii Box
+        /// </summary>
+        /// <param name="content"></param>
         public static void DrawBox(string content)
         {
             List<string> list = content.Split(';').ToList();

@@ -32,10 +32,10 @@ namespace HorseTurfe
 
             
             UI.DrawBox(" Loja (atualiza em 15min);1 - Comprar Cavalos;2 - Sair;  " +
-                "" +
-                "" +
-                "" +
-                "" +
+                ";" +
+                ";" +
+                ";" +
+                ";" +
                 "3-Admistraçao da loja");
             Console.Write("\n Escolha a sua opção: ");
 

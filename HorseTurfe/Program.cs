@@ -81,6 +81,9 @@ namespace HorseTurfe
                     case 2: Console.WriteLine("Gerir Team"); break;
                     case 3: Loja(team); break;
                     case 4: Console.WriteLine("Saiu do Jogo"); break;
+                    case 5: Calendar.ShowCalendar(); Console.ReadKey(); break;
+
+
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
             } while (option != 4);
