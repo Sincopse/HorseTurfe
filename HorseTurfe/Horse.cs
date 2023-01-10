@@ -25,15 +25,15 @@ namespace HorseTurfe
 
     public class Horse
     {
-        public int Age;           // Idade, entre 2 a 10 anos
-        public int Speed;         // Velocidade, entre 1 a 20
-        public int Toughness;     // Resistencia, entre 1 a 20
-        public int Control;       // Controlo na pista, entre 1 a 20
+        public int Age;              // Idade, entre 2 a 10 anos
+        public int Speed;            // Velocidade, entre 1 a 20
+        public int Toughness;        // Resistencia, entre 1 a 20
+        public int Control;          // Controlo na pista, entre 1 a 20
 
-        public float Price;       // Preço do cavalo
+        public float Price;          // Preço do cavalo
 
-        private Sex sex { get; } // Sexo do cavalo
-        private Breed breed;      // Raça do cavalo
+        private Sex sex { get; }     // Sexo do cavalo
+        private Breed breed { get; } // Raça do cavalo
 
         public bool canCouple(Horse horse1, Horse horse2) => horse1.sex != horse2.sex;
 
