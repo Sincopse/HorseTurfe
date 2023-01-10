@@ -35,7 +35,7 @@ namespace HorseTurfe
         private Sex sex { get; }     // Sexo do cavalo
         private Breed breed { get; } // Raça do cavalo
 
-        public bool canCouple(Horse horse1, Horse horse2) => horse1.sex != horse2.sex;
+        public bool canCouple(Horse horse) => this.sex != horse.sex;
 
         public Horse(int age, int speed, int control, int toughness, float price, Breed breed, Sex sex)
         {
