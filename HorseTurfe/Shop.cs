@@ -28,16 +28,28 @@ namespace HorseTurfe
         {   
             List<Horse> horses = new List<Horse>();
             int option = 0;
-            string PassWord ;
+            string TextAllHorse;
 
+            Horse horse1 = Horse.GenerateHorse();
+            Horse horse2 = Horse.GenerateHorse();
+            Horse horse3 = Horse.GenerateHorse();
+            Horse horse4 = Horse.GenerateHorse();
+            Horse horse5 = Horse.GenerateHorse();
             
-            UI.DrawBox(" Loja (atualiza em 15min);1 - Comprar Cavalos;2 - Sair;  " +
-                ";" +
-                ";" +
-                ";" +
-                ";" +
-                "3-Admistraçao da loja");
-            Console.Write("\n Escolha a sua opção: ");
+            Horse[] Allhorses = { horse1, horse2, horse3, horse4, horse5 };
+
+
+
+            TextAllHorse = Allhorses[0].ToString() + ";" +
+                           Allhorses[1].ToString() + ";" +
+                           Allhorses[2].ToString() + ";" +
+                           Allhorses[3].ToString() + ";" +
+                           Allhorses[4].ToString() + ";" +
+                           Allhorses[5].ToString();
+
+     
+            UI.DrawBox("Cavalos disponiveis:;"  + horse1 + ";");
+            Console.Write("\n Escolha o cavalo que deseja adquirir: ");
 
 
             option =int.Parse(Console.ReadLine());
@@ -45,24 +57,86 @@ namespace HorseTurfe
 
             switch (option)
             {
-                case 1: foreach (Horse Horse in horses)
+                case 1:
+                    UI.DrawBox(Allhorses[0] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
+                    option = int.Parse(Console.ReadLine());
+                    do
                     {
-                        Console.WriteLine(horses);
-                    }
-                    break;
-                case 2: Console.WriteLine("Quitting...");
-                    break;
-                
-                case 3: PassWord = Console.ReadLine();
-                    if (PassWord == ("EDJD"))
+                        switch(option)
                         {
-                        Console.WriteLine("PassWord Correta.");
-                        Console.WriteLine("Introduça os cavalos para venda no seguinte formato" +
-                            "");//ver formato
-
-
-
+                            case 1:
+                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
+                                break;
+                            case 2: break;
                         }
+                           
+
+                    } while (option != 2);
+                    break;
+                case 2:
+                    UI.DrawBox(Allhorses[1] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
+                    option = int.Parse(Console.ReadLine());
+                    do
+                    {
+                        switch (option)
+                        {
+                            case 1:
+                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
+                                
+                                break;
+                            case 2: break;
+                        }
+
+
+                    } while (option != 2);
+                    break;
+                case 3:
+                    UI.DrawBox(Allhorses[2] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
+                    option = int.Parse(Console.ReadLine());
+                    do
+                    {
+                        switch (option)
+                        {
+                            case 1:
+                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
+                                break;
+                            case 2: break;
+                        }
+
+
+                    } while (option != 2);
+                    break;
+                case 4:
+                    UI.DrawBox(Allhorses[3] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
+                    option = int.Parse(Console.ReadLine());
+                    do
+                    {
+                        switch (option)
+                        {
+                            case 1:
+                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
+                                break;
+                            case 2: break;
+                        }
+
+
+                    } while (option != 2);
+                    break;
+                case 5:
+                    UI.DrawBox(Allhorses[4] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
+                    option = int.Parse(Console.ReadLine());
+                    do
+                    {
+                        switch (option)
+                        {
+                            case 1:
+                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
+                                break;
+                            case 2: break;
+                        }
+
+
+                    } while (option != 2);
                     break;
 
                 default:Console.WriteLine("Opçao invalida");
