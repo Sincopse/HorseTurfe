@@ -38,6 +38,12 @@ namespace HorseTurfe
             
             Horse[] Allhorses = { horse1, horse2, horse3, horse4, horse5 };
 
+            TextAllHorse = Allhorses[0].ToString() + ";" +
+                           Allhorses[1].ToString() + ";" +
+                           Allhorses[2].ToString() + ";" +
+                           Allhorses[3].ToString() + ";" +
+                           Allhorses[4].ToString() + ";" +
+                           Allhorses[5].ToString();
 
 
             TextAllHorse = Allhorses[0].ToString() + ";" +
