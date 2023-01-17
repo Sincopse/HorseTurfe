@@ -37,19 +37,20 @@ namespace HorseTurfe
         public static void DrawRace(List<Horse> horses)
         {
             const string asciihorse = "-C=0>";
-            string asciiRace = "Start                                             Finish" +
-                               "\r\n════════════════════════════════════════════════════════" +
-                               "\r\n                     -C=0>                       |" +
-                               "\r\n         -C=0>                                   |" +
-                               "\r\n                                           -C=0> |" +
-                               "\r\n-C=0>                                            |" +
-                               "\r\n════════════════════════════════════════════════════════";
+            // Race Sample
+            //"Start                                             Finish" +
+            //"\r\n════════════════════════════════════════════════════════" +
+            //"\r\n                     -C=0>                       |" +
+            //"\r\n         -C=0>                                   |" +
+            //"\r\n                                           -C=0> |" +
+            //"\r\n-C=0>                                            |" +
+            //"\r\n════════════════════════════════════════════════════════";
 
             Console.WriteLine("Start                                             Finish" +
                                "\n════════════════════════════════════════════════════════");
             foreach (Horse horse in horses)
             {
-                Console.WriteLine($"{new String(' ', horse.distance) + asciihorse}");
+                Console.WriteLine($"{new String(' ', (int)horse.Distance) + asciihorse + new String(' ', 50 - (int)horse.Distance)}");
             }
             Console.WriteLine("════════════════════════════════════════════════════════");
         }

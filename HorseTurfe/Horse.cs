@@ -48,6 +48,7 @@ namespace HorseTurfe
             this.Price = price;
             this.breed = breed;
             this.sex = sex;
+            this.Distance = 0;
         }
 
         static public Horse GenerateHorse()
