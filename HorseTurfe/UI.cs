@@ -33,5 +33,25 @@ namespace HorseTurfe
             }
             Console.WriteLine($" ╚{new String('═', length + 2)}╝");
         }
+
+        public static void DrawRace(List<Horse> horses)
+        {
+            const string asciihorse = "-C=0>";
+            string asciiRace = "Start                                             Finish" +
+                               "\r\n════════════════════════════════════════════════════════" +
+                               "\r\n                     -C=0>                       |" +
+                               "\r\n         -C=0>                                   |" +
+                               "\r\n                                           -C=0> |" +
+                               "\r\n-C=0>                                            |" +
+                               "\r\n════════════════════════════════════════════════════════";
+
+            Console.WriteLine("Start                                             Finish" +
+                               "\n════════════════════════════════════════════════════════");
+            foreach (Horse horse in horses)
+            {
+                Console.WriteLine($"{new String(' ', horse.distance) + asciihorse}");
+            }
+            Console.WriteLine("════════════════════════════════════════════════════════");
+        }
     }
 }
