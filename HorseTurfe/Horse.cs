@@ -25,12 +25,14 @@ namespace HorseTurfe
 
     public class Horse
     {
-        public int Age;              // Idade, entre 2 a 10 anos
+        public int Age { get; }      // Idade, entre 2 a 10 anos
         public int Speed;            // Velocidade, entre 1 a 20
         public int Toughness;        // Resistencia, entre 1 a 20
         public int Control;          // Controlo na pista, entre 1 a 20
 
         public float Price;          // Preço do cavalo
+
+        public float Distance;       // Distancia do cavalo na corrida
 
         private Sex sex { get; }     // Sexo do cavalo
         private Breed breed { get; } // Raça do cavalo
