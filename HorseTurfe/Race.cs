@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HorseTurfe
@@ -18,34 +19,35 @@ namespace HorseTurfe
         public void Run()
         {
             Random rand = new Random();
-            List<int> horsePositions = new List<int>();
-            for (int i = 0; i < horses.Count; i++)
-            {
-                horsePositions.Add(0);
-            }
+            bool hasWinner = false;
 
             while (true)
             {
                 // Update da posiçao dos cavalos
-                for (int i = 0; i < horses.Count; i++)
+                foreach (var horse in horses)
                 {
-                    horses[i].Move(rand.Next(10));
-                    horsePositions[i] = horses[i].Distance;
+                    horse.Move(rand.Next(10));
                 }
 
-                UI.DrawRace(); //se n tiver a dar alguem que crie a class
+                Console.Clear();
+                if (!hasWinner)
+                {
+                    UI.DrawRace(horses); //se n tiver a dar alguem que crie a class
+                }                        // Já criei :)
 
                 // Checka o vencedor
-                for (int i = 0; i < horses.Count; i++)
+                foreach (var horse in horses)
                 {
-                    if (horses[i].Distance >= 100)
+                    if (horse.Distance >= 100)
                     {
-                        Console.WriteLine($"{horses[i].Name} has won the race!");
-                        Console.WriteLine("Press any key to exit");
+                        hasWinner = true;
+                        Console.WriteLine(horse.Name + " has won the race!");
+                        Console.WriteLine("\nPress any key to exit");
                         Console.ReadKey();
                         return;
                     }
                 }
+                Thread.Sleep(500);
             }
         }
     }

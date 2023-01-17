@@ -25,6 +25,7 @@ namespace HorseTurfe
 
     public class Horse
     {
+        public string Name { get; set; }
         public int Age { get; }      // Idade, entre 2 a 10 anos
         public int Speed;            // Velocidade, entre 1 a 20
         public int Toughness;        // Resistencia, entre 1 a 20
@@ -32,7 +33,7 @@ namespace HorseTurfe
 
         public float Price;          // Preço do cavalo
 
-        public float Distance;       // Distancia do cavalo na corrida
+        public int Distance;       // Distancia do cavalo na corrida
 
         private Sex sex { get; }     // Sexo do cavalo
         private Breed breed { get; } // Raça do cavalo
@@ -41,6 +42,7 @@ namespace HorseTurfe
 
         public Horse(int age, int speed, int control, int toughness, float price, Breed breed, Sex sex)
         {
+            this.Name = "Não batizado";
             this.Age = age;
             this.Speed = speed;
             this.Control = control;
@@ -72,5 +74,7 @@ namespace HorseTurfe
         {
             return "Cavalo " + breed + " de " + Age + " anos";
         }
+
+        public void Move(int distance) => Distance += distance;
     }
 }

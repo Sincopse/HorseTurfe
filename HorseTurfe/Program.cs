@@ -35,6 +35,20 @@ namespace HorseTurfe
 
         static void Race(Team team)
         {
+            List<Horse> horses = new List<Horse>();
+
+            Horse horse1 = Horse.GenerateHorse();
+            Horse horse2 = Horse.GenerateHorse();
+            Horse horse3 = Horse.GenerateHorse();
+            Horse horse4 = Horse.GenerateHorse();
+
+            horses.Add(horse1);
+            horses.Add(horse2);
+            horses.Add(horse3);
+            horses.Add(horse4);
+
+            Race race = new Race(horses);
+
             int option;
 
             do
@@ -50,7 +64,7 @@ namespace HorseTurfe
 
                 switch (option)
                 {
-                    case 1: Console.WriteLine("corridas"); break;
+                    case 1: race.Run(); break;
                     case 2: Console.WriteLine("Gerir Team"); break;
                     case 3: Loja(team); break;
                     case 4: break;

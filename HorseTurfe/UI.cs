@@ -46,13 +46,13 @@ namespace HorseTurfe
             //"\r\n-C=0>                                            |" +
             //"\r\n════════════════════════════════════════════════════════";
 
-            Console.WriteLine("Start                                             Finish" +
-                               "\n════════════════════════════════════════════════════════");
+            Console.WriteLine(" Start                                              Finish" +
+                               "\n═══════════════════════════════════════════════════════════");
             foreach (Horse horse in horses)
             {
-                Console.WriteLine($"{new String(' ', (int)horse.Distance) + asciihorse + new String(' ', 50 - (int)horse.Distance)}");
+                Console.WriteLine($"{new String(' ', (horse.Distance > 100 ? 100:horse.Distance) / 2) + asciihorse + (horse.Distance <= 100 ? new String(' ', 50 - horse.Distance / 2):"")}|");
             }
-            Console.WriteLine("════════════════════════════════════════════════════════");
+            Console.WriteLine("═══════════════════════════════════════════════════════════");
         }
     }
 }
