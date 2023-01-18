@@ -10,6 +10,13 @@ namespace HorseTurfe
     {
         public int Money;
 
+        public Player(string name, int startingMoney)
+        {
+            Name = name;
+            Money = startingMoney;
+            Horses = new List<Horse>();
+        }
+
         public Player(int startingMoney)
         {
             this.Money = startingMoney;

@@ -25,16 +25,17 @@ namespace HorseTurfe
        
 
         public static  void HorseShop(Team team)
-        {   
+        {
+            Random rnd = new Random();
             List<Horse> horses = new List<Horse>();
             int option = 0;
             string TextAllHorse;
 
-            Horse horse1 = Horse.GenerateHorse();
-            Horse horse2 = Horse.GenerateHorse();
-            Horse horse3 = Horse.GenerateHorse();
-            Horse horse4 = Horse.GenerateHorse();
-            Horse horse5 = Horse.GenerateHorse();
+            Horse horse1 = Horse.GenerateHorse(rnd);
+            Horse horse2 = Horse.GenerateHorse(rnd);
+            Horse horse3 = Horse.GenerateHorse(rnd);
+            Horse horse4 = Horse.GenerateHorse(rnd);
+            Horse horse5 = Horse.GenerateHorse(rnd);
             
             Horse[] Allhorses = { horse1, horse2, horse3, horse4, horse5 };
 

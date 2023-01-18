@@ -53,10 +53,8 @@ namespace HorseTurfe
             this.Distance = 0;
         }
 
-        static public Horse GenerateHorse()
+        static public Horse GenerateHorse(Random rnd)
         {
-            Random rnd = new Random((int)DateTime.Now.Ticks);
-
             Sex sex = (Sex)rnd.Next(2);
 
             Breed breed = (Breed)rnd.Next(1, 4);

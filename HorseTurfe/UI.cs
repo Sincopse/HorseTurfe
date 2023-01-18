@@ -33,6 +33,50 @@ namespace HorseTurfe
             }
             Console.WriteLine($" ╚{new String('═', length + 2)}╝");
         }
+        public static void DrawBox(List<Horse> horses, string footer)
+        {
+            int length = 0, i = 1;
+
+            foreach (Horse horse in horses)
+            {
+                if (horse.ToString().Length > length)
+                {
+                    length = horse.ToString().Length;
+                }
+            }
+            if (footer.Length > length)
+            {
+                length = footer.Length;
+            }
+
+            Console.WriteLine($" ╔{new String('═', length + 6)}╗");
+            foreach (Horse horse in horses)
+            {
+                Console.WriteLine($" ║ {i} - {horse.ToString() + new String(' ', length - horse.ToString().Length)} ║");
+                i++;
+            }
+            Console.WriteLine($" ║ {footer + new String(' ', length - footer.Length)} ║");
+            Console.WriteLine($" ╚{new String('═', length + 6)}╝");
+        }
+        //public static void DrawBox(Horse horse)
+        //{
+        //    int length = 0;
+
+        //    foreach (Horse horse in horses)
+        //    {
+        //        if (horse.ToString().Length > length)
+        //        {
+        //            length = horse.ToString().Length;
+        //        }
+        //    }
+
+        //    Console.WriteLine($" ╔{new String('═', length + 2)}╗");
+        //    foreach (Horse horse in horses)
+        //    {
+        //        Console.WriteLine($" ║ {horse.ToString() + new String(' ', length - horse.ToString().Length)} ║");
+        //    }
+        //    Console.WriteLine($" ╚{new String('═', length + 2)}╝");
+        //}
 
         public static void DrawRace(List<Horse> horses)
         {
