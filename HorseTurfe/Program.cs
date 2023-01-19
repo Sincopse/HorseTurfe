@@ -55,7 +55,7 @@ namespace HorseTurfe
             do
             {
                 Console.Clear();
-                UI.DrawBox("     Corridas;1 - Iniciar corrida;2 - ;3 - Loja;4 - Sair");
+                UI.DrawBox("     Corridas;1 - Iniciar corrida;3 - Loja;4 - Sair");
                 Console.Write("\n Escolha a sua opção: ");
 
                 if (!Int32.TryParse(Console.ReadLine(), out option))
@@ -133,11 +133,8 @@ namespace HorseTurfe
             int option;
 
             Horse horse1 = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse1);
             Horse horse2 = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse2);
             Horse horse3 = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse3);
 
             Console.Clear();
             Console.Write("\n Digita o teu nome: ");
