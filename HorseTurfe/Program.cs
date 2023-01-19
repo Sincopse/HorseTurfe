@@ -55,7 +55,7 @@ namespace HorseTurfe
             do
             {
                 Console.Clear();
-                UI.DrawBox("     Corridas;1 - Iniciar corrida;2 - ;3 - Loja;4 - Sair");
+                UI.DrawBox("     Corridas;1 - Iniciar corrida;3 - Loja;4 - Sair");
                 Console.Write("\n Escolha a sua opção: ");
 
                 if (!Int32.TryParse(Console.ReadLine(), out option))
