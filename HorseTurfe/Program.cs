@@ -9,7 +9,7 @@ namespace HorseTurfe
 {
     internal class Program
     {
-        static void Loja(Team team)
+        static void Loja(Player player)
         {
             int option;
 
@@ -26,14 +26,14 @@ namespace HorseTurfe
 
                 switch (option)
                 {
-                    case 1: Shop.HorseShop(team); break;
+                    case 1: Shop.HorseShop(player); break;
                     case 2: Console.WriteLine("Saiu da Loja"); break;
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
             } while (option != 2);
         }
 
-        static void Race(Team team)
+        static void Race(Player player)
         {
             Random rnd = new Random();
             List<Horse> horses = new List<Horse>();
@@ -67,7 +67,7 @@ namespace HorseTurfe
                 {
                     case 1: race.Run(); break;
                     case 2: Console.WriteLine("Gerir Team"); break;
-                    case 3: Loja(team); break;
+                    case 3: Loja(player); break;
                     case 4: break;
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
@@ -195,7 +195,12 @@ namespace HorseTurfe
                             MainMenu(player);
                         }
                         else UI.DrawBox("Não tens nenhum jogo salvo"); break;
-                    case 3: break;
+                    case 3:
+                        UI.DrawBox("Deseja guardar o jogo?");
+                        Console.Write("\n Escolha a sua opção: ");
+                        if (Console.ReadLine() == "1") FileUtil.SaveFile(player);
+
+                        break;
 
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
