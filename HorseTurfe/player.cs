@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,17 +24,18 @@ namespace HorseTurfe
             this.Horses = new List<Horse>();
         }
 
-        public string BuyHorse(Horse horse)
+        public bool BuyHorse(Horse horse)
         {
             if (this.Money < horse.Price)
             {
-                return "Não tens dinheiro para comprar este cavalo.";
+                return false;
             }
 
             this.Horses.Add(horse);
             this.Money -= (int)horse.Price;
-            return "Compraste o cavalo por " + horse.Price + " euros.";
+            return true;
         }
+       
 
         public void SellHorse(Horse horse)
         {

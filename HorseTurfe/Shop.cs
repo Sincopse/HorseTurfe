@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,146 +10,83 @@ namespace HorseTurfe
 
     public static class Shop
     {
-       
+
 
         public static void AddHorse(List<Horse> horses, Horse horse)
         {
             horses.Add(horse);
         }
 
-        public static  void RemoveHorse(List<Horse> horses, Horse horse)
+        public static void RemoveHorse(List<Horse> horses, Horse horse)
         {
             horses.Remove(horse);
         }
 
 
-       
 
-        public static  void HorseShop(Team team)
+
+        public static void HorseShop(Player player)
         {
             Random rnd = new Random();
             List<Horse> horses = new List<Horse>();
             int option = 0;
+            int optionhorse = 0;
             string TextAllHorse;
 
             Horse horse1 = Horse.GenerateHorse(rnd);
             Horse horse2 = Horse.GenerateHorse(rnd);
             Horse horse3 = Horse.GenerateHorse(rnd);
             Horse horse4 = Horse.GenerateHorse(rnd);
-            Horse horse5 = Horse.GenerateHorse(rnd);
-            
-            Horse[] Allhorses = { horse1, horse2, horse3, horse4, horse5 };
-
-            TextAllHorse = Allhorses[0].ToString() + ";" +
-                           Allhorses[1].ToString() + ";" +
-                           Allhorses[2].ToString() + ";" +
-                           Allhorses[3].ToString() + ";" +
-                           Allhorses[4].ToString() + ";" +
-                           Allhorses[5].ToString();
 
 
-            TextAllHorse = Allhorses[0].ToString() + ";" +
-                           Allhorses[1].ToString() + ";" +
-                           Allhorses[2].ToString() + ";" +
-                           Allhorses[3].ToString() + ";" +
-                           Allhorses[4].ToString() + ";" +
-                           Allhorses[5].ToString();
+            Horse[] Allhorses = { horse1, horse2, horse3, horse4 };
 
-     
-            UI.DrawBox("Cavalos disponiveis:;"  + horse1 + ";");
+            TextAllHorse = Allhorses[0].Price + " euros" + " - " + Allhorses[0].ToString() + ";" +
+                           Allhorses[1].Price + " euros" + " - " + Allhorses[1].ToString() + ";" +
+                           Allhorses[2].Price + " euros" + " - " + Allhorses[2].ToString() + ";" +
+                           Allhorses[3].Price + " euros" + " - " + Allhorses[3].ToString();
+
+
+
+
+            Console.Clear();
+            UI.DrawBox("Cavalos disponiveis:;" + TextAllHorse + ";" + "5- Sair da Loja");
             Console.Write("\n Escolha o cavalo que deseja adquirir: ");
-
-
-            option =int.Parse(Console.ReadLine());
-
-
-            switch (option)
+            if (!Int32.TryParse(Console.ReadLine(), out optionhorse))
             {
-                case 1:
-                    UI.DrawBox(Allhorses[0] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
-                    option = int.Parse(Console.ReadLine());
-                    do
-                    {
-                        switch(option)
-                        {
-                            case 1:
-                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
-                                break;
-                            case 2: break;
-                        }
-                           
-
-                    } while (option != 2);
-                    break;
-                case 2:
-                    UI.DrawBox(Allhorses[1] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
-                    option = int.Parse(Console.ReadLine());
-                    do
-                    {
-                        switch (option)
-                        {
-                            case 1:
-                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
-                                
-                                break;
-                            case 2: break;
-                        }
-
-
-                    } while (option != 2);
-                    break;
-                case 3:
-                    UI.DrawBox(Allhorses[2] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
-                    option = int.Parse(Console.ReadLine());
-                    do
-                    {
-                        switch (option)
-                        {
-                            case 1:
-                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
-                                break;
-                            case 2: break;
-                        }
-
-
-                    } while (option != 2);
-                    break;
-                case 4:
-                    UI.DrawBox(Allhorses[3] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
-                    option = int.Parse(Console.ReadLine());
-                    do
-                    {
-                        switch (option)
-                        {
-                            case 1:
-                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
-                                break;
-                            case 2: break;
-                        }
-
-
-                    } while (option != 2);
-                    break;
-                case 5:
-                    UI.DrawBox(Allhorses[4] + "e o que dejesa?" + ";" + "1-Confirmar" + ";" + "Voltar a loja");
-                    option = int.Parse(Console.ReadLine());
-                    do
-                    {
-                        switch (option)
-                        {
-                            case 1:
-                                UI.DrawBox("\"Cavalo removido da Loja" + ";" + ";" + "loading......" + ";" + "cavalo Adicionado");
-                                break;
-                            case 2: break;
-                        }
-
-
-                    } while (option != 2);
-                    break;
-
-                default:Console.WriteLine("Opçao invalida");
-                    break;
+                optionhorse = -1;
             }
+             
+
+            if (optionhorse >= 1 && optionhorse <= 4)
+            {
+                UI.DrawBox(Allhorses[optionhorse - 1] + ";" + "É o que dejesa?" + ";" + "1-Confirmar" + ";" + "2- Voltar a loja");
+
+                if (!Int32.TryParse(Console.ReadLine(), out option))
+                {
+                    option = -1;
+                }
+               
+
+                if (player.BuyHorse(Allhorses[optionhorse - 1]))
+                {
+                    Console.WriteLine("Compraste o cavalo por " + Allhorses[optionhorse - 1].Price + " euros.");
+
+                }
+
+                else
+                {
+                    Console.WriteLine("Não tens dinheiro para comprar este cavalo.");
+
+                }
+
+
+
+            }
+            
+
+
+
         }
     }
 }
