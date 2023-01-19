@@ -83,7 +83,7 @@ namespace HorseTurfe
             {
                 for (int i = 0; i < player.Horses.Count; i++)
                 {
-                    textAllHorse += (i+1) + " - " + player.Horses[i] + ';';
+                    textAllHorse += (i + 1) + " - " + player.Horses[i] + ';';
                 }
                 textAllHorse += ";0 - Voltar";
 
@@ -98,24 +98,14 @@ namespace HorseTurfe
             } while (option != 0);
         }
 
-        static void Main(string[] args)
+        static void MainMenu(Player player)
         {
-            Random rnd = new Random();
-            Player player = new Player("Player 1", 1000);
-            Horse horse = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse);
-            horse = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse);
-            horse = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse);
-            horse = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse);
             int option;
 
             do
             {
                 Console.Clear();
-                UI.DrawBox("     Menu;1 - Corridas;2 - Gerir Cavalos;3 - Loja;4 - Sair");
+                UI.DrawBox($" Bom dia {player.Name};1 - Corridas;2 - Gerir Cavalos;3 - Loja;4 - Sair");
                 Console.Write("\n Escolha a sua opção: ");
 
                 if (!Int32.TryParse(Console.ReadLine(), out option))
@@ -131,6 +121,81 @@ namespace HorseTurfe
                     case 4: Console.WriteLine("Saiu do Jogo"); break;
                     case 5: Calendar.ShowCalendar(); Console.ReadKey(); break;
 
+                    default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
+                }
+            } while (option != 4);
+        }
+
+        static Player CreatePlayer()
+        {
+            Random rnd = new Random(); 
+            Player player = new Player("Player 1", 1000);
+            int option;
+
+            Horse horse1 = Horse.GenerateHorse(rnd);
+            player.Horses.Add(horse1);
+            Horse horse2 = Horse.GenerateHorse(rnd);
+            player.Horses.Add(horse2);
+            Horse horse3 = Horse.GenerateHorse(rnd);
+            player.Horses.Add(horse3);
+
+            Console.Clear();
+            Console.Write("\n Digita o teu nome: ");
+            player.Name = Console.ReadLine();
+
+            do
+            {
+                Console.Clear();
+                UI.DrawBox("1 - " + horse1.ToString() + ";2 - " + horse2.ToString() + ";3 - " + horse3.ToString());
+                Console.Write("\n Escolhe o teu primeiro cavalo: ");
+
+                if (!Int32.TryParse(Console.ReadLine(), out option))
+                {
+                    option = -1;
+                }
+
+                switch (option)
+                {
+                    case 1: player.Horses.Add(horse1); break;
+                    case 2: player.Horses.Add(horse2); break;
+                    case 3: player.Horses.Add(horse3); break;
+
+                    default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
+                }
+            } while (option < 1 && option > 3);
+
+            return player;
+        }
+
+        static void Main(string[] args)
+        {
+            Player player = new Player("Player 1", 1000);
+            int option;
+
+            do
+            {
+                Console.Clear();
+                UI.DrawBox("     Menu;1 - Começar novo jogo;2 - Carregar jogo;3 - Sair");
+                Console.Write("\n Escolha a sua opção: ");
+
+                if (!Int32.TryParse(Console.ReadLine(), out option))
+                {
+                    option = -1;
+                }
+
+                switch (option)
+                {
+                    case 1:
+                        player = CreatePlayer();
+                        MainMenu(player);
+                        break;
+                    case 2:
+                        if (FileUtil.LoadFile() != null)
+                        {
+                            MainMenu(player);
+                        }
+                        else UI.DrawBox("Não tens nenhum jogo salvo"); break;
+                    case 3: break;
 
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
