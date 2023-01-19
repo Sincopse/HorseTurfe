@@ -133,11 +133,8 @@ namespace HorseTurfe
             int option;
 
             Horse horse1 = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse1);
             Horse horse2 = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse2);
             Horse horse3 = Horse.GenerateHorse(rnd);
-            player.Horses.Add(horse3);
 
             Console.Clear();
             Console.Write("\n Digita o teu nome: ");
