@@ -10,21 +10,6 @@ namespace HorseTurfe
 
     public static class Shop
     {
-
-
-        public static void AddHorse(List<Horse> horses, Horse horse)
-        {
-            horses.Add(horse);
-        }
-
-        public static void RemoveHorse(List<Horse> horses, Horse horse)
-        {
-            horses.Remove(horse);
-        }
-
-
-
-
         public static void HorseShop(Player player)
         {
             Random rnd = new Random();
@@ -46,9 +31,6 @@ namespace HorseTurfe
                            Allhorses[1].Price + " euros" + " - " + Allhorses[1].ToString() + ";" +
                            Allhorses[2].Price + " euros" + " - " + Allhorses[2].ToString() + ";" +
                            Allhorses[3].Price + " euros" + " - " + Allhorses[3].ToString();
-
-
-
 
             Console.Clear();
             UI.DrawBox("Cavalos disponiveis:;" + TextAllHorse + ";" + "5- Sair da Loja");
@@ -102,17 +84,7 @@ namespace HorseTurfe
                         Console.WriteLine("Saindo da loja...");
                     }
                 }
-
-
-
-
-
-
             }
-            
-
-
-
         }
     }
 }
