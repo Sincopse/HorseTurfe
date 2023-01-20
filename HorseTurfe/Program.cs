@@ -121,25 +121,48 @@ namespace HorseTurfe
             do
             {
                 Console.Clear();
-                UI.DrawBox($" Bom dia {player.Name};1 - Corridas;2 - Gerir Cavalos;3 - Loja;4 - Sair");
-                Console.Write("\n Escolha a sua opção: ");
-
-                if (!Int32.TryParse(Console.ReadLine(), out option))
+                if (Calendar.DayOfWeek() == "Sexta-Feira")
                 {
-                    option = -1;
+                    UI.DrawBox("     Menu;1 - Corridas;2 - Gerir Cavalos;3 - Loja;4 - Calendário;5 - Sair;6 - MercadoNegro");
+                    UI.DrawBox("UUUUUUuuuuUUU um  mercante chegou á cidade com descontos e itens manhosos!!!");
+                    Console.Write("\n Escolha a sua opção: ");
+                    if (!Int32.TryParse(Console.ReadLine(), out option))
+                    {
+                        option = -1;
+                    }
+                    switch (option)
+                    {
+                        case 1: Race(player); break;
+                        case 2: Inventory(player); break;
+                        case 3: Loja(player); break;
+                        case 4: Console.Clear(); Calendar.ShowCalendar(); Console.ReadKey(); break;
+                        case 5: Console.WriteLine("Saiu do Jogo"); break;
+                        case 6: BlackMarket.MercadoNegroMenu(player); break;
+                        default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
+                    }
                 }
-
-                switch (option)
+                else
                 {
-                    case 1: Race(player); break;
-                    case 2: Inventory(player); break;
-                    case 3: Loja(player); break;
-                    case 4: Console.WriteLine("Saiu do Jogo"); break;
-                    case 5: Calendar.ShowCalendar(); Console.ReadKey(); break;
+                    UI.DrawBox($" Bom dia {player.Name};1 - Corridas;2 - Gerir Cavalos;3 - Loja;4 - Calendário;5 - Sair");
+                    Console.Write("\n Escolha a sua opção: ");
 
-                    default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
+                    if (!Int32.TryParse(Console.ReadLine(), out option))
+                    {
+                        option = -1;
+                    }
+
+                    switch (option)
+                    {
+                        case 1: Race(player); break;
+                        case 2: Inventory(player); break;
+                        case 3: Loja(player); break;
+                        case 4: Calendar.ShowCalendar(); Console.ReadKey(); break;
+                        case 5: Console.WriteLine("Saiu do Jogo"); break;
+
+                        default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
+                    }
                 }
-            } while (option != 4);
+            } while (option != 5);
         }
 
         static Player CreatePlayer()

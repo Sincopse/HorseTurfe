@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlackMarket.cs" />
     <Compile Include="Calendar.cs" />
     <Compile Include="FileUtil.cs" />
     <Compile Include="Horse.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
