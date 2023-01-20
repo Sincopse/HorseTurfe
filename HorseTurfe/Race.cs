@@ -40,6 +40,7 @@ namespace HorseTurfe
                     {
                         EndRace();
                         Console.WriteLine(horse.Name + " has won the race!");
+                        UI.DrawBox(horse);
                         Console.WriteLine("\nPress any key to exit");
                         Console.ReadKey();
                         return;

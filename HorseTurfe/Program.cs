@@ -247,7 +247,7 @@ namespace HorseTurfe
 
                     default: Console.WriteLine("Opçao invalida"); Console.ReadKey(); break;
                 }
-            } while (option != 4);
+            } while (option != 3);
         }
     }
 }
