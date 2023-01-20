@@ -70,7 +70,29 @@ namespace HorseTurfe
                 switch (option)
                 {
                     case 1:
+                        Item item1 = availableItems[0];
+                        if (player.Money < item1.Boost)
+                        {
+                            Console.WriteLine("Não tem dinheiro suficiente para comprar este item.");
+                            Console.ReadKey();
+                            break;
+                        }
+                        Console.WriteLine("Comprou " + item1.Name + " por " + item1.Boost + " euros");
+                        player.Money -= item1.Boost;
+                        player.Items.Add(item1);
+                        break;
                     case 2:
+                        Item item2 = availableItems[1];
+                        if (player.Money < item2.Boost)
+                        {
+                            Console.WriteLine("Não tem dinheiro suficiente para comprar este item.");
+                            Console.ReadKey();
+                            break;
+                        }
+                        Console.WriteLine("Comprou " + item2.Name + " por " + item2.Boost + " euros");
+                        player.Money -= item2.Boost;
+                        player.Items.Add(item2);
+                        break;
                     case 3:
                         if (player.Money < availableItems[option - 1].Boost)
                         {
@@ -83,6 +105,31 @@ namespace HorseTurfe
                         player.Items.Add(availableItems[option - 1]);
                         break;
                     case 4:
+                        Item item4 = availableItems[3];
+                        if (player.Money < item4.Boost)
+                        {
+                            Console.WriteLine("Não tem dinheiro suficiente para comprar este item.");
+                            Console.ReadKey();
+                            break;
+                        }
+                        Console.WriteLine("Comprou " + item4.Name + " por " + item4.Boost + " euros");
+                        player.Money -= item4.Boost;
+                        player.Items.Add(item4);
+                        break;
+                    case 5:
+                        Item item5 = availableItems[4];
+                        if (player.Money < item5.Boost)
+                        {
+                            Console.WriteLine("Não tem dinheiro suficiente para comprar este item.");
+                            Console.ReadKey();
+                            break;
+                        }
+                        Console.WriteLine("Comprou " + item5.Name + " por " + item5.Boost + " euros");
+                        player.Money -= item5.Boost;
+                        player.Items.Add(item5);
+                        break;
+                    case 6:
+                        Console.WriteLine("Saiu do Mercado Negro");
                         break;
                     default:
                         Console.WriteLine("Opçao inválida");
