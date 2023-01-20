@@ -11,18 +11,21 @@ namespace HorseTurfe
     public class Player : Team
     {
         public int Money;
+        public List<Item> Items;
 
         public Player(string name, int startingMoney)
         {
             Name = name;
             Money = startingMoney;
             Horses = new List<Horse>();
+            Items = new List<Item>();
         }
 
         public Player(int startingMoney)
         {
             this.Money = startingMoney;
             this.Horses = new List<Horse>();
+            Items = new List<Item>();
         }
 
         public bool BuyHorse(Horse horse)
@@ -35,6 +38,14 @@ namespace HorseTurfe
             this.Horses.Add(horse);
             this.Money -= (int)horse.Price;
             return true;
+        }
+
+        public void CoupleHorses(Horse horse1, Horse horse2)
+        {
+            if (horse1.canCouple(horse2))
+            {
+                Horses.Add(Horse.BreedHorses(horse1, horse2));
+            }
         }
        
 

@@ -69,6 +69,33 @@ namespace HorseTurfe
             return new Horse(age, speed, control, toughness, price, breed, sex);
         }
 
+        static public Horse GenerateHorse(Random rnd, Breed inputbreed)
+        {
+            Sex sex = (Sex)rnd.Next(2);
+
+            Breed breed = inputbreed;
+
+            int age = 2;
+            int speed = (int)(16 * Math.Sin(0.25 * age + 0.4) + rnd.Next(-2, 3));
+            int control = rnd.Next(2, 11);
+            int toughness = rnd.Next(2, 11);
+            int price = rnd.Next(100, 10000);
+
+            return new Horse(age, speed, control, toughness, price, breed, sex);
+        }
+
+        static public Horse BreedHorses(Horse horse1, Horse horse2)
+        {
+            Random rnd = new Random();
+            int breed = rnd.Next(2);
+
+            if (breed == 1)
+            {
+                return GenerateHorse(rnd, horse1.breed);
+            }
+            else return GenerateHorse(rnd, horse2.breed);
+        }
+
         public override string ToString()
         {
             return "Cavalo " + breed + " de " + Age + " anos";
