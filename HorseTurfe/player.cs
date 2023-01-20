@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace HorseTurfe
 {
+    [Serializable]
     public class Player : Team
     {
         public int Money;

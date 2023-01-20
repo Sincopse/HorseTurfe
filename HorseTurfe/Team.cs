@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HorseTurfe
 {
+    [Serializable]
     public class Team
     {
         public string Name;

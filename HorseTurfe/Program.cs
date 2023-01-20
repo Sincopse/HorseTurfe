@@ -43,7 +43,7 @@ namespace HorseTurfe
             Horse horse3 = Horse.GenerateHorse(rnd);
             Horse horse4 = Horse.GenerateHorse(rnd);
 
-            horses.Add(horse1);
+            horses.Add(player.Horses[0]);
             horses.Add(horse2);
             horses.Add(horse3);
             horses.Add(horse4);
@@ -65,7 +65,7 @@ namespace HorseTurfe
 
                 switch (option)
                 {
-                    case 1: race.Run(); break;
+                    case 1: race.Run(player); break;
                     case 2: Console.WriteLine("Gerir Team"); break;
                     case 3: Loja(player); break;
                     case 4: break;
@@ -81,6 +81,7 @@ namespace HorseTurfe
 
             do
             {
+                textAllHorse = "";
                 for (int i = 0; i < player.Horses.Count; i++)
                 {
                     textAllHorse += (i + 1) + " - " + player.Horses[i] + ';';
@@ -94,6 +95,19 @@ namespace HorseTurfe
                 if (!Int32.TryParse(Console.ReadLine(), out option))
                 {
                     option = -1;
+                }
+
+                if (option < 0 || option > player.Horses.Count)
+                {
+                    Console.WriteLine("Opção inválida");
+                    Console.ReadKey();
+                }
+                else if (option != 0)
+                {
+                    Console.Clear();
+                    UI.DrawBox(player.Horses[option - 1]);
+                    Console.WriteLine("3 - Voltar");
+                    Console.ReadKey();
                 }
             } while (option != 0);
         }
@@ -161,6 +175,9 @@ namespace HorseTurfe
                 }
             } while (option < 1 && option > 3);
 
+            Console.Clear();
+            Console.Write("\n Digita o nome para o teu cavalo: ");
+            player.Horses[0].Name = Console.ReadLine();
             return player;
         }
 

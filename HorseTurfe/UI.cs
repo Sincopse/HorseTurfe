@@ -33,50 +33,30 @@ namespace HorseTurfe
             }
             Console.WriteLine($" ╚{new String('═', length + 2)}╝");
         }
-        public static void DrawBox(List<Horse> horses, string footer)
+        public static void DrawBox(Horse horse)
         {
-            int length = 0, i = 1;
+            int length = 23;
 
-            foreach (Horse horse in horses)
+            if (horse.ToString().Length > length)
             {
-                if (horse.ToString().Length > length)
-                {
-                    length = horse.ToString().Length;
-                }
-            }
-            if (footer.Length > length)
-            {
-                length = footer.Length;
+                length = horse.ToString().Length;
             }
 
-            Console.WriteLine($" ╔{new String('═', length + 6)}╗");
-            foreach (Horse horse in horses)
-            {
-                Console.WriteLine($" ║ {i} - {horse.ToString() + new String(' ', length - horse.ToString().Length)} ║");
-                i++;
-            }
-            Console.WriteLine($" ║ {footer + new String(' ', length - footer.Length)} ║");
-            Console.WriteLine($" ╚{new String('═', length + 6)}╝");
+            //Cavalo Árabe 22 anos 3500€
+            //╔═════════════════════════╗
+            //║ - Cavalos Árabe 22 anos ║
+            //║ Velocidade:  ▰▰▰▰▰▰▱▱▱▱ ║
+            //║ Resistência: ▰▰▰▰▱▱▱▱▱▱ ║
+            //║ Controlo:    ▰▰▰▰▰▱▱▱▱▱ ║
+            //╚═════════════════════════╝
+
+            Console.WriteLine($" ╔{new String('═', length + 4)}╗");
+            Console.WriteLine($" ║ {horse.ToString()}{new String(' ', length - horse.ToString().Length + 2)} ║");
+            Console.WriteLine($" ║ - Velocidade:  {new String('\u25A0', horse.Speed / 2)}{new String('\u25A1', length - 13 - horse.Speed / 2)} ║");
+            Console.WriteLine($" ║ - Resistência: {new String('\u25A0', horse.Toughness / 2)}{new String('\u25A1', length - 13 - horse.Toughness / 2)} ║");
+            Console.WriteLine($" ║ - Controlo:    {new String('\u25A0', horse.Control / 2)}{new String('\u25A1', length - 13 - horse.Control / 2)} ║");
+            Console.WriteLine($" ╚{new String('═', length + 4)}╝");
         }
-        //public static void DrawBox(Horse horse)
-        //{
-        //    int length = 0;
-
-        //    foreach (Horse horse in horses)
-        //    {
-        //        if (horse.ToString().Length > length)
-        //        {
-        //            length = horse.ToString().Length;
-        //        }
-        //    }
-
-        //    Console.WriteLine($" ╔{new String('═', length + 2)}╗");
-        //    foreach (Horse horse in horses)
-        //    {
-        //        Console.WriteLine($" ║ {horse.ToString() + new String(' ', length - horse.ToString().Length)} ║");
-        //    }
-        //    Console.WriteLine($" ╚{new String('═', length + 2)}╝");
-        //}
 
         public static void DrawRace(List<Horse> horses)
         {
@@ -94,7 +74,7 @@ namespace HorseTurfe
                                "\n═══════════════════════════════════════════════════════════");
             foreach (Horse horse in horses)
             {
-                Console.WriteLine($"{new String(' ', (horse.Distance > 100 ? 100:horse.Distance) / 2) + asciihorse + (horse.Distance <= 100 ? new String(' ', 50 - horse.Distance / 2):"")}|");
+                Console.WriteLine($"{new String(' ', (horse.Distance > 200 ? 200:horse.Distance) / 4) + asciihorse + (horse.Distance <= 200 ? new String(' ', 50 - horse.Distance / 4):"")}|");
             }
             Console.WriteLine("═══════════════════════════════════════════════════════════");
         }

@@ -23,6 +23,7 @@ namespace HorseTurfe
         Female = 1
     }
 
+    [Serializable]
     public class Horse
     {
         public string Name { get; set; }
