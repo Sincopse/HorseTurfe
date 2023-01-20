@@ -29,8 +29,9 @@ namespace HorseTurfe
         {
             Random rnd = new Random();
             List<Horse> horses = new List<Horse>();
-            int option = 0;
+            int op = 0;
             int optionhorse = 0;
+            int option = 0;
             string TextAllHorse;
 
             Horse horse1 = Horse.GenerateHorse(rnd);
@@ -60,25 +61,50 @@ namespace HorseTurfe
 
             if (optionhorse >= 1 && optionhorse <= 4)
             {
+                Console.Clear();
                 UI.DrawBox(Allhorses[optionhorse - 1] + ";" + "É o que dejesa?" + ";" + "1-Confirmar" + ";" + "2- Voltar a loja");
-
                 if (!Int32.TryParse(Console.ReadLine(), out option))
                 {
                     option = -1;
                 }
-               
+
 
                 if (player.BuyHorse(Allhorses[optionhorse - 1]))
                 {
-                    Console.WriteLine("Compraste o cavalo por " + Allhorses[optionhorse - 1].Price + " euros.");
-
+                    Console.Clear();
+                    UI.DrawBox("Compraste o cavalo por " + Allhorses[optionhorse - 1].Price + " euros." + ";" + "Deseja comprar outro cavalo?" + ";" + "1 - Sim" + ";" + "2 - Nao");
+                   
+                    if(!Int32.TryParse(Console.ReadLine(), out op))
+                    {
+                        op = -1;
+                    }
+                    if (op == 1)
+                        HorseShop(player);
+                    else
+                    {
+                        Console.WriteLine("Saindo da loja...");
+                    }
                 }
-
                 else
                 {
-                    Console.WriteLine("Não tens dinheiro para comprar este cavalo.");
-
+                    Console.Clear();
+                    UI.DrawBox("Não tens dinheiro para comprar este cavalo." + ";" + "Deseja comprar outro cavalo?" + ";" + "1 - Sim" + ";" + "2 - Nao");
+                    
+                     
+                    if (!Int32.TryParse(Console.ReadLine(), out op))
+                    {
+                    op = -1;
+                    }
+                    if (op == 1)
+                        HorseShop(player);
+                    else
+                    {
+                        Console.WriteLine("Saindo da loja...");
+                    }
                 }
+
+
+
 
 
 
