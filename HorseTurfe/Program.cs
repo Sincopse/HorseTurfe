@@ -168,7 +168,7 @@ namespace HorseTurfe
         static Player CreatePlayer()
         {
             Random rnd = new Random(); 
-            Player player = new Player("Player 1", 1000);
+            Player player = new Player("Player 1", 10000);
             int option;
 
             Horse horse1 = Horse.GenerateHorse(rnd);

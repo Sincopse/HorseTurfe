@@ -20,6 +20,40 @@ namespace HorseTurfe
         {
             Random rand = new Random();
 
+            int option;
+            string textAllHorse = "";
+
+            do
+            {
+                textAllHorse = "";
+                for (int i = 0; i < player.Horses.Count; i++)
+                {
+                    textAllHorse += (i + 1) + " - " + player.Horses[i] + ';';
+                }
+                textAllHorse += ";0 - Voltar";
+
+                Console.Clear();
+                UI.DrawBox(textAllHorse);
+                Console.Write("\n Escolha a sua opção: ");
+
+                if (!Int32.TryParse(Console.ReadLine(), out option))
+                {
+                    option = -1;
+                }
+
+                if (option < 0 || option > player.Horses.Count)
+                {
+                    Console.WriteLine("Opção inválida");
+                    Console.ReadKey();
+                }
+                else if (option != 0)
+                {
+                    Console.Clear();
+                    horses[0] = player.Horses[option - 1];
+                    option = 0;
+                }
+            } while (option != 0);
+
             while (true)
             {
                 // Update da posiçao dos cavalos
