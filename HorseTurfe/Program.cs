@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Media;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -185,6 +187,10 @@ namespace HorseTurfe
         {
             Player player = new Player("Player 1", 1000);
             int option;
+
+            //SoundPlayer music = new SoundPlayer("music.wav");
+            //// Play the audio file
+            //music.PlayLooping(); finding a way to change the volume
 
             do
             {
