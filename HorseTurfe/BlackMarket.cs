@@ -83,6 +83,7 @@ namespace HorseTurfe
                         player.Items.Add(availableItems[option - 1]);
                         break;
                     case 4:
+                        Console.WriteLine("Saiu do Mercado Negro");
                         break;
                     default:
                         Console.WriteLine("Opçao inválida");
