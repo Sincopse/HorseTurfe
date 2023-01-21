@@ -6,10 +6,7 @@ Basically a simple console app game where you are supposed to manage a Turfe tea
 
 **It has**
 
-> Races, yup .-.
-
-> Shop where you can buy different horses with different status.
-
-> Black market at fridays.
-
-> Incredible 4k Ultra Realistic Graphics.
+> • Races, yup .-.
+> • Shop where you can buy different horses with different status.
+> • Black market at fridays.
+> • Incredible 4k Ultra Realistic Graphics.
